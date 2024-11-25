@@ -25,7 +25,7 @@ private:
 public:
     Graph(int numNodes, int numIslands, int islandID);
     void addNode();
-    int dijkstraShortestPath(int source, int destination, std::vector<std::string>& path);
+    int dijkstraShortestPath(int source, int destination, std::vector<std::string>& path) const;  // Add const here
     int calculateShortestDistance(const std::vector<Graph>& islands, const std::string& src, const std::string& dest, std::vector<std::string>& path);
     void printGraph();
 };
