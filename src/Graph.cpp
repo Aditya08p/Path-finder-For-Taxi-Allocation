@@ -99,3 +99,36 @@ int Graph::calculateShortestDistance(const std::vector<Graph>& islands, const st
     for (size_t i = 0; i < islands.size(); i++) {
         for (size_t j = 0; j < islands[i].nodes.size(); j++) {
             if (islands[i].nodes[j].name == src) {
+                srcIsland = i;
+                srcNode = j;
+            }
+            if (islands[i].nodes[j].name == dest) {
+                destIsland = i;
+                destNode = j;
+            }
+        }
+    }
+
+    if (srcIsland == destIsland) {
+        return islands[srcIsland].dijkstraShortestPath(srcNode, destNode, path);
+    } else {
+        std::cout << "Cross-island travel currently not supported in this demo.\n";
+        return -1;
+    }
+}
+
+// Print the graph
+void Graph::printGraph() {
+    std::cout << "Nodes in this graph:\n";
+    for (const auto& node : nodes) {
+        std::cout << node.name << " (" << node.identity << ") - Island " << node.island_number << "\n";
+    }
+
+    std::cout << "Adjacency Matrix:\n";
+    for (const auto& row : adj_list) {
+        for (const auto& val : row) {
+            std::cout << val << " ";
+        }
+        std::cout << "\n";
+    }
+}
