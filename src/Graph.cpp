@@ -55,7 +55,7 @@ void Graph::addNode() {
 }
 
 // Dijkstra's Algorithm for shortest path
-int Graph::dijkstraShortestPath(int source, int destination, std::vector<std::string>& path) {
+int Graph::dijkstraShortestPath(int source, int destination, std::vector<std::string>& path) const {  // Add const here
     int n = adj_list.size();
     std::vector<int> dist(n, std::numeric_limits<int>::max());
     std::vector<int> parent(n, -1);
